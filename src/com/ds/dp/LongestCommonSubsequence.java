@@ -1,21 +1,17 @@
-package com.ds.singlelinkedlist;
+package com.ds.dp;
 
-public class Demo {
-	static String str1 = "ABCDGH" ;
-	static String str2 = "AEDFHR" ;
-	static int[][] ans = new int[str1.length()][str2.length()] ;
+public class LongestCommonSubsequence {
+	int[][] ans ;
+	String str1 ;
+	String str2 ;
 	
-	public static void main(String[] args) {
-		for(int i=0;i<str1.length();i++) {
-			for(int j=0;j<str2.length();j++) {
-				ans[i][j] = -1 ;
-			}
-		}
-		System.out.println(maxSubsequence(str1.length()-1, str2.length()-1, 0)) ;
-		
+	public LongestCommonSubsequence(String str1, String str2) {
+		this.str1 = str1 ;
+		this.str2 = str2 ;
+		ans = new int[str1.length()][str2.length()] ;
 	}
 	
-	public static int maxSubsequence(int index1, int index2, int length) {
+	public int maxSubsequence(int index1, int index2, int length) {
 		if(index1 < 0 || index2 < 0) {
 			return length ;
 		}
@@ -41,4 +37,5 @@ public class Demo {
 		ans[index1][index2] = tempLength ;
 		return tempLength ;
 	}
+	
 }

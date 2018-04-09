@@ -2,12 +2,6 @@ package com.ds.tree;
 
 public class LevelOrder {
 	
-	class Node{
-		int data ;
-		Node left ;
-		Node right ;
-	}
-	
 	Node root ;
 	
 	public LevelOrder(Node root) {
@@ -15,11 +9,14 @@ public class LevelOrder {
 	}
 	
 	/**
-	 * This method prints level order traversal without extra space
+	 * This method prints level order traversal without extra space but time complexity O(n^2)
 	 */
-	
 	public void printLevelOrder() {
-		
+		int height = height(root) ;
+		for(int i=1;i<=height;i++) {
+			printGivenLevel(root, i);
+			System.out.println();
+		}
 	}
 	
 	public int height(Node parent) {
@@ -36,7 +33,7 @@ public class LevelOrder {
 		if(level == 0 || parent == null)
 			return ;
 		if(level == 1)
-			System.out.println(parent.data);
+			System.out.print(parent.data+"	");
 		else {
 			printGivenLevel(parent.left, level-1);
 			printGivenLevel(parent.right, level-1);

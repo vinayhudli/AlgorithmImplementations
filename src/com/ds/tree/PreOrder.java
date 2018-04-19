@@ -1,5 +1,7 @@
 package com.ds.tree;
 
+import java.util.Stack;
+
 /**
  * 
  * @author vinay.deshpande
@@ -7,9 +9,23 @@ package com.ds.tree;
  */
 public class PreOrder {
 	
-	Node root ;
-	
-	public PreOrder(Node root) {
-		this.root = root ;
+	public void traversal(Node node) {
+		if(node == null )
+			return ;
+		
+		Stack<Node> stack = new Stack<>() ;
+		stack.push(node) ;
+		
+		while(!stack.isEmpty()) {
+			Node tempNode = stack.pop() ;
+			System.out.println(tempNode.data);
+			
+			if(tempNode.right != null) {
+				stack.push(tempNode.right) ;
+			}
+			
+			if(tempNode.left != null)
+				stack.push(tempNode.left) ;
+		}
 	}
 }
